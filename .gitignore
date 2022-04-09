@@ -1,0 +1,5 @@
+
+data/db.py
+directory_log/log_sql.txt
+directory_log/log_visual_window.txt
+test.py
