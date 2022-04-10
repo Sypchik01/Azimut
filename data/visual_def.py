@@ -1,5 +1,4 @@
-from data.db import db_connect
-from data.sql import get_sql
+import xml.etree.ElementTree as ET
 
 
 def text_len(sql_input):
@@ -7,3 +6,23 @@ def text_len(sql_input):
     for i in sql_input:
         sql_output += i + '\n--\n'
     return sql_output
+
+
+def save_parameter_read(find_attrib):
+    tree = ET.parse('./data/local_file/save_parameter.xml')
+    root = tree.getroot()
+    for child in root:
+        if child.attrib['name'] == find_attrib:
+            return child.text
+
+
+def save_parameter_update(find_attrib, update_value):
+    tree = ET.parse('./data/local_file/save_parameter.xml')
+    root = tree.getroot()
+    for child in root:
+        if child.attrib['name'] == find_attrib:
+            child.text = str(update_value)
+    new_tree = ET.tostring(root, encoding='unicode', method='xml')
+    new_tree = str(new_tree).encode().decode('UTF-8')
+    new_root = open('./data/local_file/save_parameter.xml', 'w', encoding="utf-8")
+    new_root.write(new_tree)
