@@ -21,7 +21,7 @@ def config_update(find_attrib, update_value):
     root = tree.getroot()
     for child in root:
         if child.attrib['name'] == find_attrib:
-            child.text = str(update_value)
+            child.text = str(update_value).strip()
     new_tree = ET.tostring(root, encoding='unicode', method='xml')
     new_tree = str(new_tree).encode().decode('UTF-8')
     new_root = open(r'./config.xml', 'w', encoding="utf-8")
