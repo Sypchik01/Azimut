@@ -6,7 +6,7 @@ def get_sql(sql_name, sql_mod_name='', sql_mod_value=0):
 
     # ВЫЗОВ ПРОЦЕДУРЫ histori_injuries
     elif sql_name == 'histori_injuries':
-        sql_text = 'begin pk_histori_roll.histori_roll_injuries(\''+sql_mod_name+'\'); end;'
+        sql_text = 'begin pk_histori_roll.histori_roll_in_injuries(\''+sql_mod_name+'\'); end;'
 
     # ВЫЗОВ ПРОЦЕДУРЫ histori_jumping
     elif sql_name == 'histori_jumping':
