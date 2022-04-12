@@ -8,7 +8,7 @@ def text_len(sql_input):
     return sql_output
 
 
-def save_parameter_read(find_attrib):
+def config_read(find_attrib):
     tree = ET.parse(r'./config.xml')
     root = tree.getroot()
     for child in root:
@@ -16,7 +16,7 @@ def save_parameter_read(find_attrib):
             return child.text
 
 
-def save_parameter_update(find_attrib, update_value):
+def config_update(find_attrib, update_value):
     tree = ET.parse(r'./config.xml')
     root = tree.getroot()
     for child in root:

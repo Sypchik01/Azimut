@@ -33,18 +33,18 @@ def window_start(vl_title):
     txt_name_input = Text(width=10, height=1)
     txt_name_input.grid(row=1, column=0, padx=5, pady=1)
     # ЧТЕНИЕ ИМЕНИ ИЗ CONFIG
-    txt_name_input.insert(1.0, save_parameter_read('lable_name_input'))
+    txt_name_input.insert(1.0, config_read('lable_name_input'))
 
     # ФУНКЦИЯ КНОПКА ТРАВМЫ
     def clic_button_injuries():
         # ЗАПИСЬ В CONFIG ИМЕНИ
-        save_parameter_update('lable_name_input', txt_name_input.get("1.0", "end"))
+        config_update('lable_name_input', txt_name_input.get("1.0", "end"))
         return db_connect(get_sql('histori_injuries', txt_name_input.get("1.0", "end").strip()), 'pl/sql')
 
     # ФУНКЦИЯ КНОПКА ПРЫЖОК
     def clic_button_jumping():
         # ЗАПИСЬ В CONFIG ИМЕНИ
-        save_parameter_update('lable_name_input', txt_name_input.get("1.0", "end"))
+        config_update('lable_name_input', txt_name_input.get("1.0", "end"))
         return db_connect(
             get_sql(
                 sql_name='histori_jumping',
