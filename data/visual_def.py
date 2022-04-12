@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 def text_len(sql_input):
     sql_output = ''
     for i in sql_input:
-        sql_output += i + '\n--\n'
+        sql_output += i.replace('\\n','\n') + '\n--\n'
     return sql_output
 
 
