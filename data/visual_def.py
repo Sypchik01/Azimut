@@ -13,6 +13,8 @@ def config_read(find_attrib):
     root = tree.getroot()
     for child in root:
         if child.attrib['name'] == find_attrib:
+            if child.text is None:
+                child.text = ''
             return child.text
 
 
